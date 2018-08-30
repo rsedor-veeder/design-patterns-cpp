@@ -1,0 +1,146 @@
+= C++ Design Patterns
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+This example shows the SOLID design principles discussed in session.
+
+The example also shows how to setup a CMake project which includes sub-projects.
+
+# Pre-requisites
+
+You should have the following installed:
+
+  * Git
+  * CLion
+  * CMake
+  * Boost (on the path)
+  * Valgrind (if on Mac or Ubuntu)
+  * gcc (Windows Mingw, Mac CLang or gcc)
+
+## Mac install:
+
+Install https://brew.sh/[Homebrew] and use it to install gcc, CMake and Boost.
+
+## Ubuntu install:
+
+Install developer tools, CMake and Boost. (Base repos)
+
+## Windows install:
+
+[source, cmake]
+----
+Veeder seems to have blocked the mingw.org pages for some reason.
+The following link goes to SourceForge.net.
+----
+
+Install https://sourceforge.net/projects/mingw-w64/[mingw64], https://cmake.org/install/[CMake] and https://www.boost.org/doc/libs/1_65_1/more/getting_started/windows.html[Boost].
+
+### Special Windows Issues
+[source, cmake]
+----
+Windows does not seem to be able to cleanly find Boost for instance.  Do not clutter up the CMake with a Windows issue at this point.
+
+We should be able to get by with the following under Windows for Boost.
+
+Just add them after the cmake call with -D. In this case it would be:
+
+cmake -DBOOST_ROOT=C:\local\boost_1_65_1 -DBOOST_LIBRARYDIR=C:\local\boost_1_65_1\stage\lib ..
+
+You should clear your CMake cache (delete build directory or just the CMakeCache.txt file) prior to the given command.
+----
+
+## Other Tools
+
+You may want to install some other helpful tools.
+
+    * tmux - This allows us multiple console control as a terminal multiplexer.  *nix and https://blogs.msdn.microsoft.com/commandline/2016/06/08/tmux-support-arrives-for-bash-on-ubuntu-on-windows/[Windows] (you should have the Windows Linux Subsystem for Windows 10)
+    ** https://medium.com/actualize-network/a-minimalist-guide-to-tmux-13675fb160fa[tmux cheat sheet]
+    * Valgrind - This is a great debugging tool and integrated support is in CLion.
+    ** Currently you'll have to be attached to cygwin or the http://www.albertgao.xyz/2016/09/28/how-to-use-valgrind-on-windows/[Windows Linux Subsystem] to install and use it if on Windows.  If on a *nix system it will be part of the base package repository.
+    ** Mac users simply install using HomeBrew
+    *** $ brew install valgrind
+
+# Directory Structure
+
+The files included in this example are:
+
+```
+$ tree
+.
+└── design-patterns-cpp
+    ├── CMakeLists.txt
+    ├── README.adoc
+    ├── solid-boostdi
+    │   ├── CMakeLists.txt
+    │   ├── di.hpp
+    │   └── main.cpp
+    ├── solid-isp
+    │   ├── CMakeLists.txt
+    │   └── main.cpp
+    ├── solid-lsp
+    │   ├── CMakeLists.txt
+    │   └── main.cpp
+    ├── solid-ocp
+    │   ├── CMakeLists.txt
+    │   └── main.cpp
+    └── solid-srp
+        ├── CMakeLists.txt
+        └── main.cpp
+...
+
+```
+# CLion Project
+
+https://www.jetbrains.com/help/clion/meet-clion.html[Get used to CLion]
+
+https://www.jetbrains.com/help/clion/quick-tutorial-on-configuring-clion-on-windows.html[Configure CLion on Windows]
+
+# Using Git
+
+https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet[Git commands cheat sheet]
+
+# Command-Line Build
+
+$ cd into the directory
+
+[source, cmake]
+----
+$cd solid-cpp
+----
+
+Run cmake against the CMakeLists.txt.  Assume this is *nix environment and case sensitive.
+
+[source, cmake]
+----
+$cmake CMakeLists.txt
+----
+
+When it's done, run make to build the executables.
+[source, cmake]
+----
+$make
+----
+
+# Unit Testing
+
+In later sessions we will be using unit tests and the https://github.com/google/googletest/blob/master/googletest/docs/primer.md[Google.Test] framework.
+
+https://cmake.org/cmake/help/v3.12/module/GoogleTest.html[Here] is an introduction for using Google.Test with CMake.
+
+Download and instructions https://github.com/google/googletest[here].
+
+Adding to CLion https://www.jetbrains.com/help/clion/creating-google-test-run-debug-configuration-for-test.html[here].
+
+The file gtest_installer.sh is a sample of how to download, build, and install GTest on your local machine.
+
+If you are on a Mac or Ubuntu, add the GTEST_DIR and GMOCK_DIR to your .bash_profile or .bashrc.  On Windows, create the environment variables and add them to your path.
+
+
+
+
+
+
