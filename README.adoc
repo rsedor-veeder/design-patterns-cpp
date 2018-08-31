@@ -6,7 +6,11 @@ toc::[]
 
 # Introduction
 
-This example shows the SOLID design principles discussed in session.
+This demonstrates:
+
+    * Modern C++ Design Patterns
+    * Modern C++ techniques
+    * Modern C++ features (11, 14, 17)
 
 The example also shows how to setup a CMake project which includes sub-projects.
 
@@ -17,17 +21,21 @@ You should have the following installed:
   * Git
   * CLion
   * CMake
-  * Boost (on the path)
-  * Valgrind (if on Mac or Ubuntu)
+  * Boost (on the path or in Mingw)
+  * Valgrind (We will do some Modern C++ concurrency in a few sections)
   * gcc (Windows Mingw, Mac CLang or gcc)
 
 ## Mac install:
+
+On the Mac, it is best to install everything from Homebrew for consistency and update support.
 
 Install https://brew.sh/[Homebrew] and use it to install gcc, CMake and Boost.
 
 ## Ubuntu install:
 
-Install developer tools, CMake and Boost. (Base repos)
+On Ubuntu or Debian, it is best to install everything through the repos for consistency and update support.
+
+<<ubuntu-install.adoc#title, Ubuntu Install>>
 
 ## Windows install:
 

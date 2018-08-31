@@ -1,0 +1,316 @@
+= Ubuntu Install Environment
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+Basic tooling and configuration for Ubuntu environment.
+
+# Linux
+
+If you are new to Linux or perhaps just a different distro, you will want to create environment variables and do things to customize bash.
+
+Before we add anything to the system, it might be a good idea to review the https://medium.com/@abhinavkorpal/bash-profile-vs-bashrc-c52534a787d3[following].
+
+Traditionally, if all else fails, on Ubuntu put your variables and path changes in ~/.bashrc.  If you are on a Mac, put them into ~/.bash_profile.
+
+If you are administering a server, then you are not the only user and the above reference will come in handy.
+
+### Linux Commands
+
+Top 10 Linux http://www.informit.com/blogs/blog.aspx?uk=The-10-Most-Important-Linux-Commands[Commands].
+
+### Using tar and bz Commands
+
+Quick https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/[reference].
+
+### Performance Commands
+
+Quick https://www.thegeekstuff.com/2011/12/linux-performance-monitoring-tools/[reference] for doing command-line performance analysis.
+
+# Install developer tooling
+
+Always update the repos first:
+
+----
+$ sudo apt update && sudo apt upgrade
+----
+
+## Install CLion
+
+Install as a snap and update automatically.
+
+https://www.jetbrains.com/help/clion/install-and-set-up-product.html#install-on-linux-with-snaps[CLion] includes the plugins for Lua and Python development.
+
+[source, cmake]
+----
+$ sudo snap install clion --classic
+----
+
+## C++ tooling
+
+Install gcc, make, gdb and g++ tools.  This will not install the latest version of the gcc or gdb.  It is usually 1 version behind the latest. But, is the latest supported version on this version of the platform.
+
+The following will also install other debugging tooling and https://www.boost.org/[boost] libraries.
+
+    * The icu libraries are required by boost regex
+
+[source, cmake]
+----
+$ sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev
+$ gcc --version
+$ gdb --version
+$ g++ --version
+----
+
+## Boost
+
+[source, cmake]
+----
+$ sudo apt-get install libboost-all-dev libicu-dev
+----
+
+In case you already have boost installed but not the latest Ubuntu repo libraries, you can uninstall and re-install.
+[source, cmake]
+----
+$ sudo apt-get --purge remove libboost-dev libboost-doc
+$ sudo apt-get --purge remove libboost-all-dev
+$ sudo apt autoremove
+----
+
+Install cmake
+[source, cmake]
+----
+$ sudo apt-get install cmake
+----
+
+## Git
+
+Install git
+[source, cmake]
+----
+$ sudo apt-get install git
+----
+
+## Command-line Testing and Monitoring
+
+### Threading debugging
+
+Install the http://valgrind.org/docs/manual/QuickStart.html[valgrind] suite.  This will integrate into CLion or use from the command-line.
+
+Ubuntu specific http://manpages.ubuntu.com/manpages/bionic/man1/valgrind.1.html[valgrind].
+
+[source, cmake]
+----
+$ sudo apt-get install valgrind
+----
+
+### Memory testing
+
+Install https://linux.die.net/man/8/memtester[memtester].
+[source, cmake]
+----
+$ sudo apt-get install memtester
+----
+
+## Python tooling
+
+CLion supports the community edition of PyCharm for Python projects by default.  This is all we need for basic Python development.
+
+If we need more advanced support for Django or Flask web development or we services then we should get IntelliJ and use the Python Plugin.  This will provide a broad spectrum of Python support as well as Golang and Rust.
+
+This will not install the latest version of Python.  It will install the latest supported version on this platform.  Usually 1 version behind.
+[source, cmake]
+----
+$ sudo apt-get install python3
+$ python3 --version
+----
+
+The best approach for python is to create a virtualenv environment and have the version you want to use of python in the virtual environment.  Not to use the latest on your machine.  This means you could have multiple versions of python in different projects.
+
+If you want to have multiple versions of python on the local machine and switch between them globally, then we can configure that below.
+
+Configure Python globally on the machine to switch between versions, setup through update alternatives.
+
+### Configure Python System-Wide
+
+[source, cmake]
+----
+After installing multiple versions of python. e.g. 2.7, 3.5, 3.6.1 and 3.7.
+$ sudo update-alternatives --list
+
+If there is nothing, then you have to setup Python in alternatives yourself.
+
+Adding alternatives should look something like the following:
+
+update-alternatives: using /usr/bin/python2.7 to provide /usr/bin/python (python) in auto mode
+# update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+
+update-alternatives: using /usr/bin/python3.4 to provide /usr/bin/python (python) in auto mode
+# update-alternatives --install /usr/bin/python python /usr/bin/python3.4 2
+
+Once you have done this, we can run alternatives again, choose the one you want:
+
+# update-alternatives --list python
+# update-alternatives --config python
+
+Then after you select the one we want, check it:
+
+# python --version
+----
+
+### Install pip and other tooling
+[source, cmake]
+----
+$ sudo apt-get install python-dev python-pip python-virtualenv python-numpy python-matplotlib
+----
+
+### Install Virtualenv Wrapper
+[source, cmake]
+----
+$ sudo pip install virtualenvwrapper
+----
+
+### Boost for Python
+
+If you already installed libbost-all-dev, you will have the Boost libraries for Python.  If not, we can do the following for Python.
+
+Install Boost for Python.
+[source, cmake]
+----
+$ sudo apt install libbost-program-options-dev libboost-python-dev
+
+or just
+
+$ sudo apt install libboost-all-dev
+----
+
+### If doing Machine Learning Development
+[source, cmake]
+----
+# Create a virtual environment
+$ mkvirtualenv ML
+
+# Activate the virtual environment
+$ workon ML
+
+# Install the packages you need
+$ pip install scipy scikit-learn matplotlib jupyter pandas numpy tensorflow keras seaborn
+----
+
+### If doing Web Development
+[source, cmake]
+----
+# Create Virtualenv
+$ mkvirtualenv MYWEB
+
+# Activate the virtual environment
+$ workon MYWEB
+
+# Install the packages you need
+$ pip install django beautifulsoup4 requests ipython flask
+----
+
+## Linux Development
+
+### If doing Networking Development
+[source, cmake]
+----
+$ sudo apt install libpcap-dev libnet1-dev rpcbind openssh-server nmap
+----
+
+### If doing Computer Vision or Image Processing
+[source, cmake]
+----
+$ sudo apt install python-numpy
+$ cd ~
+
+# Clone latest codebase for opencv (do git checkout for specific version)
+$ git clone https://github.com/Itseez/opencv.git
+
+# Clone opencv contrib plugins
+$ git clone https://github.com/Itseez/opencv_contrib.git
+
+# install prerequisites
+$ sudo apt-get install cmake pkg-config libjpeg8-dev libtiff-dev libjasper-dev libpng12-dev libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libatlas-base-dev gfortran libopencv-dev build-essential checkinstall cmake pkg-config yasm libtiff5-dev libjpeg-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev python-dev python-numpy libtbb-dev libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils ffmpeg libgphoto2-dev
+
+# Start Build Process
+$ cd opencv
+$ mkdir build
+$ cd build
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON ..
+$ make -j4
+$ sudo make install
+$ sudo ldconfig
+----
+
+## Linux Tools
+
+Install on Mac through Homebrew.
+
+### Image Editor
+
+https://www.gimp.org/[Gimp]
+[source, cmake]
+----
+$ sudo apt-get install gimp
+----
+
+### Editors
+
+Install vim.
+
+This will link vim to vi.  When you use vi it will point to vim.
+
+[source, cmake]
+----
+$ sudo apt install vim
+----
+
+Install Atom.
+
+[source, cmake]
+----
+Get the download
+
+$ wget -O atom-amd64.deb https://atom.io/download/deb
+
+Go to the download and install it
+
+$ sudo dpkg -i atom-amd64.deb
+----
+
+### Tmux
+
+https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/[Terminal multiplexer].
+[source, cmake]
+-----
+$ sudo apt-get install tmux
+-----
+
+### Tree
+
+Install tree command.  Gives you the nifty tree structure of any directory.
+[source, cmake]
+----
+$ sudo apt-get install tree
+----
+
+## Ubuntu Gnome
+
+You will want to leverage Gnome to manage your UI experience in Ubuntu.  You should install the Gnome Tweak Tool.  When you look for a tweak, you will have to enable it in your browser.
+
+Install Gnome Tweak Tool
+[source, cmake]
+----
+$ sudo apt install gnome-tweak-tool
+
+In order to add new tweaks through Firefox or your browser, you will need to add the shell extension.
+
+$ sudo apt-get install chrome-gnome-shell
+----
+
+Then you can make your Ubuntu image look like a Mac https://www.omgubuntu.co.uk/2017/03/make-ubuntu-look-like-mac-5-steps[interface] if you want.
+
