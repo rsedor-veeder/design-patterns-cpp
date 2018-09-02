@@ -5,3 +5,4 @@ Makefile
 CMakeFiles
 CMakeCache.txt
 .DS_Store
+.gitkeep

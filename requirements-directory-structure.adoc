@@ -1,0 +1,44 @@
+= Requirements Directory Structure
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Directory Structure
+
+[source, cmake]
+----
+<libraryname>
+  CMake
+    CMakeList.txt
+    CTestConfig.cmake
+  include/
+      <library_name>
+        ...
+  src/ // not required for header only libraries
+    cpp files ...
+    ...
+  config/ // not required if no configuration files
+    config files
+    sh files
+    bat files
+    ...
+  example/
+    cpp and h files
+    ...
+  test/
+    cpp and h files
+    data/
+      ...
+  doc/
+    md or adoc files
+    ...
+----
+
+This is designed so that the library is contained in one directory structure and need not occupy a specific place within any higher level structure.
+
+The library directory and files can be placed anywhere in the users file hierarchy.
+
+The library can be used just by making sure the include directory is available during the compilations of source files which use it.
+
+The library will include files named CMakeLists.txt to support the CMake build system
