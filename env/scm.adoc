@@ -1,0 +1,11 @@
+= Git Environment
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+Basic tooling and introduction the git environment.
+
+https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet[Git commands cheat sheet]

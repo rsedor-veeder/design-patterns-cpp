@@ -1,4 +1,4 @@
-= C++ Design Patterns
+= SOLID Principles
 :toc:
 :toc-placement!:
 

@@ -45,51 +45,31 @@ Creational Patterns <<creational-cpp/README.adoc#title, README>>
 
 # CLion Project
 
-https://www.jetbrains.com/help/clion/meet-clion.html[Get used to CLion]
-
-https://www.jetbrains.com/help/clion/quick-tutorial-on-configuring-clion-on-windows.html[Configure CLion on Windows]
+<<env/clion.adoc#title, CLion>>
 
 # Using Git
 
-https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet[Git commands cheat sheet]
+<<env/scm.adoc#title, git>>
 
-# Command-Line Build
+# Build
 
-$ cd into the directory
-
-[source, cmake]
-----
-$cd design-patterns-cpp
-----
-
-Run cmake against the CMakeLists.txt.  Assume this is *nix environment and case sensitive.
-
-[source, cmake]
-----
-$cmake CMakeLists.txt
-----
-
-When it's done, run make to build the executables.
-[source, cmake]
-----
-$make
-----
+<<env/build.adoc#title, Build Environment>>
 
 # Unit Testing
 
-<<req/requirements-unit-testing.adoc#title, Unit Testing>>
+<<req/unit-testing.adoc#title, Unit Testing>>
 
 # Packaging
 
-<<req/requirements-packaging.adoc#title, Packaging>>
+<<req/packaging.adoc#title, Packaging>>
 
 # Static Analysis
 
-<<req/requirements-static-analysis.adoc#title, Static Analysis>>
+<<req/static-analysis.adoc#title, Static Analysis>>
 
 # Directory Structure
 
-<<requirements-directory-structure.adoc#title, Requirements for directory structure>>
+<<req/directory-structure.adoc#title, Requirements for directory structure>>
 
 
 

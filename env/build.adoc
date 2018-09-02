@@ -1,0 +1,31 @@
+= Build Environment
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+Basic tooling and introduction the build environment.
+
+# Command-line build
+
+$ cd into the directory
+
+[source, cmake]
+----
+$cd design-patterns-cpp
+----
+
+Run cmake against the CMakeLists.txt.  Assume this is *nix environment and case sensitive.
+
+[source, cmake]
+----
+$cmake CMakeLists.txt
+----
+
+When it's done, run make to build the executables.
+[source, cmake]
+----
+$make
+----
