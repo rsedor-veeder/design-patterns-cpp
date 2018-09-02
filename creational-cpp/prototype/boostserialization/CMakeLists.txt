@@ -19,6 +19,8 @@ set (Boost_USE_MULTITHREAD ON)  # enable multithreading
 
 # ------------------------------------------------------------
 # Include the desired components
+# NOTE: Yes, this should probably all go into the conditional
+#       above BOOST_FOUND
 # ------------------------------------------------------------
 add_library(boost::serialization INTERFACE IMPORTED)
 set_target_properties(boost::serialization PROPERTIES

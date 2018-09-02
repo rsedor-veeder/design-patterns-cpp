@@ -61,35 +61,17 @@ cmake -DBOOST_ROOT=C:\local\boost_1_65_1 -DBOOST_LIBRARYDIR=C:\local\boost_1_65_
 You should clear your CMake cache (delete build directory or just the CMakeCache.txt file) prior to the given command.
 ----
 
-## Other Tools
-
-You may want to install some other helpful tools.
-
-    * tmux - This allows us multiple console control as a terminal multiplexer.  *nix and https://blogs.msdn.microsoft.com/commandline/2016/06/08/tmux-support-arrives-for-bash-on-ubuntu-on-windows/[Windows] (you should have the Windows Linux Subsystem for Windows 10)
-    ** https://medium.com/actualize-network/a-minimalist-guide-to-tmux-13675fb160fa[tmux cheat sheet]
-    * Valgrind - This is a great debugging tool and integrated support is in CLion.
-    ** Currently you'll have to be attached to cygwin or the http://www.albertgao.xyz/2016/09/28/how-to-use-valgrind-on-windows/[Windows Linux Subsystem] to install and use it if on Windows.  If on a *nix system it will be part of the base package repository.
-    ** Mac users simply install using HomeBrew
-    *** $ brew install valgrind
 
 # Directory Structure
 
-The files included in this example are:
+<<requirements-directory-structure.adoc#title, Requirements for directory structure>>
 
-```
-$ tree
-.
-└── design-patterns-cpp
-    ├── CMakeLists.txt
-    ├── README.adoc
-    ├── .gitignore
-    └── solid-cpp
-...
 
-```
 # Sub-Projects
 
 SOLID Design <<solid-cpp/README.adoc#title, README>>
+
+Creational Patterns <<creational-cpp/README.adoc#title, README>>
 
 # CLion Project
 

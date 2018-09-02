@@ -1,0 +1,7 @@
+= Creational Patterns
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction

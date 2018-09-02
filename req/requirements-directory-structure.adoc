@@ -6,6 +6,23 @@ toc::[]
 
 # Directory Structure
 
+[sourec, cmake]
+----
+The files included in this example are:
+
+```
+$ tree
+.
+└── design-patterns-cpp
+    ├── CMakeLists.txt
+    ├── README.adoc
+    ├── .gitignore
+    └── solid-cpp
+...
+
+```
+----
+
 [source, cmake]
 ----
 <libraryname>
