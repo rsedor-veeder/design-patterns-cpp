@@ -35,7 +35,7 @@ Install https://brew.sh/[Homebrew] and use it to install gcc, CMake and Boost.
 
 On Ubuntu or Debian, it is best to install everything through the repos for consistency and update support.
 
-<<ubuntu-install.adoc#title, Ubuntu Install>>
+<<ubuntu-env.adoc#title, Ubuntu Install>>
 
 ## Windows install:
 
