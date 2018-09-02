@@ -14,6 +14,13 @@ This demonstrates:
 
 The example also shows how to setup a CMake project which includes sub-projects.
 
+
+# Sub-Projects
+
+SOLID Design <<solid-cpp/README.adoc#title, README>>
+
+Creational Patterns <<creational-cpp/README.adoc#title, README>>
+
 # Pre-requisites
 
 You should have the following installed:
@@ -37,37 +44,31 @@ You should have the following installed:
 
 <<env/windows-env.adoc#title, Windows Install>>
 
-# Sub-Projects
-
-SOLID Design <<solid-cpp/README.adoc#title, README>>
-
-Creational Patterns <<creational-cpp/README.adoc#title, README>>
-
-# CLion Project
+## CLion Project
 
 <<env/clion.adoc#title, CLion>>
 
-# Using Git
+## Using Git
 
 <<env/scm.adoc#title, git>>
 
-# Build
+## Build
 
 <<env/build.adoc#title, Build Environment>>
 
-# Unit Testing
+## Unit Testing
 
 <<req/unit-testing.adoc#title, Unit Testing>>
 
-# Packaging
+## Packaging
 
 <<req/packaging.adoc#title, Packaging>>
 
-# Static Analysis
+## Static Analysis
 
 <<req/static-analysis.adoc#title, Static Analysis>>
 
-# Directory Structure
+## Directory Structure
 
 <<req/directory-structure.adoc#title, Requirements for directory structure>>
 
