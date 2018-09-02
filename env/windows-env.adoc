@@ -1,0 +1,32 @@
+= Windows Install Environment
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+Basic tooling and configuration for Windows environment.
+
+# Windows
+[source, cmake]
+----
+Veeder seems to have blocked the mingw.org pages for some reason.
+The following link goes to SourceForge.net.
+----
+
+Install https://sourceforge.net/projects/mingw-w64/[mingw64], https://cmake.org/install/[CMake] and https://www.boost.org/doc/libs/1_65_1/more/getting_started/windows.html[Boost].
+
+### Special Windows Issues
+[source, cmake]
+----
+Windows does not seem to be able to cleanly find Boost for instance.  Do not clutter up the CMake with a Windows issue at this point.
+
+We should be able to get by with the following under Windows for Boost.
+
+Just add them after the cmake call with -D. In this case it would be:
+
+cmake -DBOOST_ROOT=C:\local\boost_1_65_1 -DBOOST_LIBRARYDIR=C:\local\boost_1_65_1\stage\lib ..
+
+You should clear your CMake cache (delete build directory or just the CMakeCache.txt file) prior to the given command.
+----

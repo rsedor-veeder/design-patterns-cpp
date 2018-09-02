@@ -1,0 +1,14 @@
+= Mac Install Environment
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+Basic tooling and configuration for Mac environment.
+
+# Mac Install
+On the Mac, it is best to install everything from Homebrew for consistency and update support.
+
+Install https://brew.sh/[Homebrew] and use it to install gcc, CMake and Boost.
