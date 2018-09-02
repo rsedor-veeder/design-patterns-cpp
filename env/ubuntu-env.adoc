@@ -65,7 +65,7 @@ $ gdb --version
 $ g++ --version
 ----
 
-## Boost
+### Boost
 
 [source, cmake]
 ----
@@ -80,10 +80,37 @@ $ sudo apt-get --purge remove libboost-all-dev
 $ sudo apt autoremove
 ----
 
+### CMake
+
 Install cmake
 [source, cmake]
 ----
 $ sudo apt-get install cmake
+----
+
+### Ninja Build
+
+Install Ninja
+[source]
+----
+$ sudo apt-get install ninja-build
+----
+
+### CPP Check
+
+Install cpp check
+[soure]
+----
+$ sudo apt-get install cppcheck
+----
+
+### Protocol Buffering
+
+Install Google Protobuf
+[source]
+----
+$ sudo apt-get install libprotobuf-dev
+$ sudo apt-get install protobuf-compiler
 ----
 
 ## Git

@@ -1,0 +1,18 @@
+= Packaging
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+Basic tooling and introduction to unit testing.
+CMake has the ability to create installers for multiple platforms using a program called https://gitlab.kitware.com/cmake/community/wikis/doc/cpack/PackageGenerators[CPack].
+CPack includes the ability to create Linux RPM, deb and gzip distributions of both binaries and source code.
+It also includes the ability to create NSIS files for Microsoft Windows.
+
+# Packaging Demo
+
+<<packaging-demo/README.adoc#title,Packaging Demo>>
+
+

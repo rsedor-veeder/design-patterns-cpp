@@ -29,3 +29,22 @@ When it's done, run make to build the executables.
 ----
 $make
 ----
+
+# C++ Tooling
+
+Protocol buffers
+
+https://developers.google.com/protocol-buffers/docs/cpptutorial[Google Protocol Buffers]
+
+# CMake Links
+
+CMake tutorials and examples:
+
+    * https://cmake.org/cmake-tutorial/[Official Tutorial]
+    * http://techminded.net/blog/modular-c-projects-with-cmake.html[Modular C++ Projects]
+    * http://voices.canonical.com/jussi.pakkanen/2013/03/26/a-list-of-common-cmake-antipatterns/[Common CMake Antipatterns]
+    * https://samthursfield.wordpress.com/2015/10/20/some-cmake-tips/[CMake Tips]
+    * https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Useful-Variables[Useful Variables]
+    * https://rix0r.nl/blog/2015/08/13/cmake-guide/[CMake Guide]
+    * http://derekmolloy.ie/hello-world-introductions-to-cmake/[CMake by Example]
+    * https://www.johnlamp.net/cmake-tutorial.html[CMake Tutorial]

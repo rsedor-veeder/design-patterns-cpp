@@ -28,4 +28,4 @@ find_package (Boost COMPONENTS REQUIRED chrono filesystem)
 # ------------------------------------------------------------
 
 
-add_executable(solid_boostdi main.cpp)
+add_executable(solid_boostdi main.cpp ../../req/packaging-demo/src/main.cpp ../../req/packaging-demo/src/hello.cpp ../../req/packaging-demo/include/hello.h)

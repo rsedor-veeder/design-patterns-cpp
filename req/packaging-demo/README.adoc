@@ -1,0 +1,11 @@
+= Packaging Demo
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+This demo shows how to use CMake to create a https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html[deb] file installer.
+
+# TODO: Instructions Go Here
