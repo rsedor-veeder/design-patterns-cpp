@@ -17,6 +17,21 @@ The following link goes to SourceForge.net.
 
 Install https://sourceforge.net/projects/mingw-w64/[mingw64], https://cmake.org/install/[CMake] and https://www.boost.org/doc/libs/1_65_1/more/getting_started/windows.html[Boost].
 
+An alternative option is to use https://cygwin.com/install.html[cygwin64] and install the following packages:
+
+  * boost-build
+  * cmake
+  * gcc-core
+  * gcc-c++
+  * gdb
+  * libboost-devel
+  * libicu-devel
+  * python2
+  * python3
+  * subversion
+  * git
+  * cppcheck
+
 ### Special Windows Issues
 [source, cmake]
 ----
