@@ -221,6 +221,8 @@ $ sudo apt-get install git
 Quick http://rogerdudler.github.io/git-guide/[guide].
 Git https://git-scm.com/book/en/v2[book].
 
+NOTE: Insert information on multiple respositories with different credentials.
+
 ## Command-line Testing and Monitoring
 
 ### Threading debugging
