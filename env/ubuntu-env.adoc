@@ -219,6 +219,7 @@ $ sudo apt-get install git
 ----
 
 Quick http://rogerdudler.github.io/git-guide/[guide].
+Git https://git-scm.com/book/en/v2[book].
 
 ## Command-line Testing and Monitoring
 
