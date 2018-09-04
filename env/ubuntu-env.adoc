@@ -346,6 +346,28 @@ $ workon MYWEB
 $ pip install django beautifulsoup4 requests ipython flask
 ----
 
+## Golang Tooling
+
+Golang is already used by several of the downloads if you installed everything else.  However, Go is installed in the directories of the applications using them.
+
+In order to do Go development, we will install is here with the latest version using snap.
+
+If you do $ sudo apt install golang-go, this will not install the latest but a version behind.
+
+Install latest Golang:
+[source, cmake]
+----
+$ sudo snap install go --classic
+$ go version
+$ echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+$ echo 'export PATH=${PATH}:${GOPATH}/bin' >> ~/.bashrc
+$ source ~/.bashrc
+----
+
+GOPATH is different from GOROOT.  The above will create a "go" directory where your work will go.
+
+Basic https://www.tutorialspoint.com/go/go_overview.htm[Golang tutorial].
+
 ## Linux Development
 
 ### If doing Networking Development
@@ -378,29 +400,6 @@ $ make -j4
 $ sudo make install
 $ sudo ldconfig
 ----
-
-## Install Golang
-
-Golang is already used by several of the downloads if you installed everything else.  However, Go is installed in the directories of the applications using them.
-
-In order to do Go development, we will install is here with the latest version using snap.
-
-If you do $ sudo apt install golang-go, this will not install the latest but a version behind.
-
-Install latest Golang:
-[source, cmake]
-----
-$ sudo snap install go --classic
-$ go version
-$ echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-$ echo 'export PATH=${PATH}:${GOPATH}/bin' >> ~/.bashrc
-$ source ~/.bashrc
-----
-
-GOPATH is different from GOROOT.  The above will create a "go" directory where your work will go.
-
-Basic https://www.tutorialspoint.com/go/go_overview.htm[Golang tutorial].
-
 
 ## Linux Tools
 
@@ -523,4 +522,15 @@ Install Pithos.
 $ sudo add-apt-repository ppa:pithos/ppa
 $ sudo apt-get update
 $ sudo apt-get install --install-recommends pithos
+----
+
+### Dropbox
+
+If you are a dropbox user.
+
+Install Dropbox.
+[source, cmake]
+----
+$ sudo apt-get update
+$ sudo apt-get -y install nautilus-dropbox
 ----
