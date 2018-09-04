@@ -198,6 +198,10 @@ $ sudo apt-get install python-dev python-pip python-virtualenv python-numpy pyth
 [source, cmake]
 ----
 $ sudo pip install virtualenvwrapper
+
+Follow additional instructions https://virtualenvwrapper.readthedocs.io/en/latest/install.html
+
+virtualenvwrapper installs to /usr/share/virtualenvwrapper on Ubuntu 18.04
 ----
 
 ### Boost for Python
