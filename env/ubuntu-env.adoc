@@ -38,6 +38,10 @@ Always update the repos first:
 $ sudo apt update && sudo apt upgrade
 ----
 
+## Google opensource libraries and repositories
+
+https://github.com/google[Google OSS]
+
 ## Install CLion
 
 Install as a snap and update automatically.
@@ -113,6 +117,99 @@ $ sudo apt-get install libprotobuf-dev
 $ sudo apt-get install protobuf-compiler
 ----
 
+### jsoncpp
+
+Install https://linux.tips/programming/how-to-install-and-use-json-cpp-library-on-ubuntu-linux-os[jsoncpp].  Json library for C++.
+[source, cmake]
+----
+$ sudo apt-get install libjsoncpp-dev
+----
+
+### libcurl and curl
+
+Install libcurl.  We can use curl with jsoncpp in our C++ code to consume http(s) and RESTful services.
+[source, cmake]
+----
+$ sudo apt-get install libcurl4-openssl-dev
+----
+
+libcurl tutorials:
+
+    * http://curl.haxx.se/libcurl/c/
+
+    * http://curl.haxx.se/libcurl/c/libcurl-tutorial.html
+
+    * http://curl.haxx.se/libcurl/c/libcurl-easy.html
+
+    * http://curl.haxx.se/libcurl/c/example.html
+
+
+Example with libcurl and jsoncpp:
+
+    * https://gist.github.com/connormanning/41efa6075515019e499c
+
+This will install libcurl using openssl.  The alternative is gnutils.  But, openssl is the most common implementation.
+[source, cmake]
+----
+$ sudo apt-get install libcurl4-gnutls-dev
+----
+
+Other optional packages for developing against libcurl are:
+[source, cmake]
+----
+$ sudo apt-get install libcurl4-doc libidn11-dev libkrb5-dev libldap2-dev librtmp-dev libssh2-1-dev libssl-dev
+----
+
+We should also install curl for testing from the command-line.
+[source, cmake]
+----
+$ sudo apt install curl
+----
+
+Curl https://linuxhint.com/install-curl-on-ubuntu-18-04/[tutorial]
+
+### glog - Google Logging Library
+
+http://rpg.ifi.uzh.ch/docs/glog.html[glog] documents.
+https://github.com/google/glog[glog repo].
+
+Install glog.
+[source, cmake]
+----
+$ sudo apt-get install -y libgflags-dev libgoogle-glog-dev libgoogle-glog-docs
+----
+
+### 0MQ - messaging library
+
+    * Download the latest stable release from their http://zeromq.org/intro:get-the-software[site], which is currently zeromq-4.2.3.tar.gz, and extract the files.
+    * Make sure you have the packages they require installed.
+    * Install checkinstall since it is helpful to remove ZMQ later on.
+
+    * Configure, make, install, save the deb for later (or don't, up to you).
+[source, cmake]
+----
+$ wget https://github.com/zeromq/libzmq/releases/download/v4.2.3/zeromq-4.2.3.tar.gz
+$ tar -xvzf zeromq-4.2.3.tar.gz
+$ cd zeromq-4.2.3/
+
+$ sudo apt-get install libtool pkg-config build-essential autoconf automake uuid-dev
+$ sudo apt-get install checkinstall
+
+$ ./configure
+$ make
+$ sudo checkinstall
+$ sudo ldconfig
+----
+
+The installation with https://wiki.debian.org/CheckInstall[checkinstall] generates a zeromq_4.2.3-1_amd64.deb that can be used to remove the package.
+This is done with sudo dpkg -r zeromq.
+
+NOTE: Put into build documentation
+Cross-compileing for http://zeromq.org/build:arm/edit/true[ARM].
+
+NOTE: Put into Windows documentation.
+Building for http://zeromq.org/build:mingw[MinGW].
+
 ## Git
 
 Install git
@@ -120,6 +217,8 @@ Install git
 ----
 $ sudo apt-get install git
 ----
+
+Quick http://rogerdudler.github.io/git-guide/[guide].
 
 ## Command-line Testing and Monitoring
 
@@ -277,6 +376,29 @@ $ sudo make install
 $ sudo ldconfig
 ----
 
+## Install Golang
+
+Golang is already used by several of the downloads if you installed everything else.  However, Go is installed in the directories of the applications using them.
+
+In order to do Go development, we will install is here with the latest version using snap.
+
+If you do $ sudo apt install golang-go, this will not install the latest but a version behind.
+
+Install latest Golang:
+[source, cmake]
+----
+$ sudo snap install go --classic
+$ go version
+$ echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+$ echo 'export PATH=${PATH}:${GOPATH}/bin' >> ~/.bashrc
+$ source ~/.bashrc
+----
+
+GOPATH is different from GOROOT.  The above will create a "go" directory where your work will go.
+
+Basic https://www.tutorialspoint.com/go/go_overview.htm[Golang tutorial].
+
+
 ## Linux Tools
 
 Install on Mac through Homebrew.
@@ -329,7 +451,24 @@ Install tree command.  Gives you the nifty tree structure of any directory.
 $ sudo apt-get install tree
 ----
 
-## Ubuntu Gnome
+## Ubuntu Tooling
+
+As a general rule, always do the following before installing anything.
+
+[source, cmake]
+----
+$ sudo apt-get update && sudo apt-get upgrade
+----
+
+If adding a new ppa repository, always do an update after the add:
+
+[source, cmake]
+----
+$ sudo apt-add-repository ppa:<<some ppa>>
+$ sudo apt-get update
+----
+
+### Gnome Tweak
 
 You will want to leverage Gnome to manage your UI experience in Ubuntu.  You should install the Gnome Tweak Tool.  When you look for a tweak, you will have to enable it in your browser.
 
@@ -345,3 +484,40 @@ $ sudo apt-get install chrome-gnome-shell
 
 Then you can make your Ubuntu image look like a Mac https://www.omgubuntu.co.uk/2017/03/make-ubuntu-look-like-mac-5-steps[interface] if you want.
 
+### Pidgin
+
+Install Pidgin to user IRC and Skype.
+[source, cmake]
+----
+$ sudo apt-get install pidgin
+----
+
+Pidgin https://help.ubuntu.com/community/Pidgin[basics].
+
+Install SIPE for Skype.
+[source, cmake]
+----
+$ sudo apt-get install pidgin-sipe
+----
+
+Not quite as easy as these https://blog.programster.org/ubuntu-16-04-configure-pidgin-for-skype-for-business-lync[instructions] but, they get you most of the way.
+
+### Tusk
+
+Install Tusk if you have Evernote.
+[source, cmake]
+----
+
+----
+
+### Pithos
+
+Should you listen to Pandora while you work.
+
+Install Pithos.
+[source, cmake]
+----
+$ sudo add-apt-repository ppa:pithos/ppa
+$ sudo apt-get update
+$ sudo apt-get install --install-recommends pithos
+----
