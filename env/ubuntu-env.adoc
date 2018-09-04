@@ -509,7 +509,7 @@ Not quite as easy as these https://blog.programster.org/ubuntu-16-04-configure-p
 Install Tusk if you have Evernote.
 [source, cmake]
 ----
-
+$ sudo snap install tusk
 ----
 
 ### Pithos
