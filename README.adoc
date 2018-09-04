@@ -40,6 +40,8 @@ You should have the following installed:
 
 <<env/ubuntu-env.adoc#title, Ubuntu Install>>
 
+test
+
 ## Windows install:
 
 <<env/windows-env.adoc#title, Windows Install>>
